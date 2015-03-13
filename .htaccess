@@ -1,0 +1,11 @@
+DirectoryIndex index.php
+IndexIgnore *
+ErrorDocument 404 /404Error
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteRule ^404Error/?$ 404Error.php [NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?url=$1&%{QUERY_STRING}  [PT,L]

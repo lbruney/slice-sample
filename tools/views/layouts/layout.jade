@@ -1,0 +1,14 @@
+include ../../util/php
+doctype html
+html
+  head
+    title
+      +echo("SliceHelper::message($this->getConfig('name'))")
+    meta(charset='utf-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(rel="stylesheet", href!="/assets/css/app.css")
+    link(rel="shortcut icon", href="favicon.icon", type="image/ico")
+  body
+      div.container
+        block content
+

@@ -1,0 +1,17 @@
+{
+  "name": "slice-sample",
+  "version": "1.0.0",
+  "description": "Sample project showing php/jade/stylus",
+  "devDependencies": {
+    "gulp": "3.8.8",
+    "gulp-util": "3.0.1"
+  },
+  "dependencies": {
+    "node-watch": "0.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:lbruney/slice-sample.git"
+  },
+  "readme": "Run with apache to enable htaccess file."
+}

@@ -1,0 +1,47 @@
+mixin foreach(what, value, key)
+    -suffix = key != null ? 'as $'+key+'=>$'+value : 'as $'+value
+    | <?php foreach(#{what} !{suffix}): ?>
+    block
+    | <?php endforeach; ?>
+mixin for(from, to, name)
+    -name = name != null ? name : '$i'
+    | <?php for(#{name}=#{from}; #{name} <= #{to}; #{name}++): ?>
+    block
+    | <?php endfor; ?>
+mixin -for(from, to, name)
+    -name = name != null ? name : '$i'
+    | <?php for(#{name}=#{from}; #{name} <= #{to}; #{name}++): ?>
+    block
+mixin -end(what)
+    | <?php end#{what}; ?>
+
+mixin echo(content, inline)
+    -inline = inline ? inline : ''
+    | <?php echo !{content}; ?>#{inline}
+
+mixin include(path, once, base, isVar, type)
+    -type = type ? type : 'include'
+    -base = base ? base : 'dirname(__FILE__).'
+    -base = (base == '-') ? '' : base
+    -include = once ? +type+'_once' : type
+    -path = isVar ? path : '"'+path+'"'
+    | <?php !{include}(!{base}!{path}); ?>
+
+mixin php
+    | <?php
+    block
+    | ?>
+mixin if(condition)
+    | <?php if(!{condition}): ?>
+    block
+    | <?php endif; ?>
+mixin ifo(condition)
+    | <?php if(!{condition}): ?>
+    block
+mixin elseif(condition)
+    | <?php elseif(!{condition}): ?>
+    block
+mixin else
+    | <?php else: ?>
+    block
+    | <?php endif; ?>

@@ -1,0 +1,11 @@
+include layouts/layout
+extends layouts/layout
+block content
+  h1
+   +ifo("isset($model['name'])")
+    +echo("$model['name']")
+   +else
+     +echo("SliceHelper::message('That slice of cake does not exist')")
+  p
+    +echo("SliceHelper::message('routing technique')")
+
