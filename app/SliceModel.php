@@ -39,6 +39,7 @@ class SliceModel {
      * @return array
      */
     public function getList() {
+
         return $this->_list;
     }
 
